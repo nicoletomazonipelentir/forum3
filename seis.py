@@ -4,7 +4,6 @@ import json
 
 #função que le os simbolos
 def le_simbolos(arquivo):
-    """Lê símbolos de um arquivo e armazena em uma lista de dicionários."""
     tabela = []
     try:
         with open(arquivo, 'r', encoding='utf-8') as arquivo:
@@ -19,12 +18,10 @@ def le_simbolos(arquivo):
 
 #função que ordena a tabela
 def ordenar_tabela(tabela):
-    """Ordena a tabela alfabeticamente pelo nome do símbolo."""
     return sorted(tabela, key=lambda x: x["simbolo"])
 
 #função que pesquisa
 def pesquisar_simbolo(tabela, nome):
-    """Pesquisa um símbolo na tabela e retorna seus atributos."""
     for simbolo in tabela:
         if simbolo["simbolo"].lower() == nome.lower():
             return simbolo
@@ -32,7 +29,6 @@ def pesquisar_simbolo(tabela, nome):
 
 #função de adicioonar simbolo a tabela
 def adicionar_simbolo(tabela):
-    """Permite que o usuário adicione um novo símbolo à tabela."""
     while True:
         nome = input("\nDigite o nome do novo símbolo (ou ENTER para sair): ").strip()
         if nome == "":
@@ -51,7 +47,6 @@ def adicionar_simbolo(tabela):
 #função que printa a tabela
 def exibir_tabela(tabela):
     tabela=ordenar_tabela(tabela)
-    """Exibe a tabela de símbolos formatada."""
     print("\nTabela de Símbolos:")
     print("-" * 40)
     print(f"{'Símbolo':<15} {'Tipo':<15} {'Escopo':<10}")
@@ -62,7 +57,6 @@ def exibir_tabela(tabela):
 
 #função que salva no json
 def salvar_tabela_em_arquivo(tabela, arquivo):
-    """Salva a tabela de símbolos em um arquivo JSON."""
     with open(arquivo, 'w', encoding='utf-8') as arquivo:
         json.dump(tabela, arquivo, indent=4)
     print(f"Tabela salva!")
