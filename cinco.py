@@ -2,7 +2,6 @@
 
 #função que le os numeros
 def ler_numeros_de_arquivo(nome_arquivo):
-    """Lê números e suas bases de um arquivo e retorna uma lista de dicionários."""
     numeros = []
     try:
         with open(nome_arquivo, 'r', encoding='utf-8') as arquivo:
@@ -21,7 +20,6 @@ def ler_numeros_de_arquivo(nome_arquivo):
 
 #função que converte pra decimal
 def converter_para_decimal(numero, base):
-    """Converte um número de uma base específica para decimal."""
     try:
         return int(numero, base)
     except ValueError:
@@ -30,7 +28,6 @@ def converter_para_decimal(numero, base):
         
 #função que formata
 def formatar_saida(numero, base_destino, num_digitos=0, incluir_sinal=False):
-    """Converte um número decimal para outra base e formata a saída."""
     if base_destino == 2:
         resultado = bin(numero)[2:]
     elif base_destino == 8:
